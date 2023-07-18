@@ -1,6 +1,6 @@
 # Versioning Strategy
 
-`tnzapi-python` uses a modified version of [Semantic Versioning][semver] for
+`tnzapi` uses a modified version of [Semantic Versioning][semver] for
 all changes to the helper library. It is strongly encouraged that you pin at
 least the major version and potentially the minor version to avoid pulling in
 breaking changes.
