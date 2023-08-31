@@ -49,6 +49,10 @@ class VoiceApi(Common):
             if key == "Keypads":
                 setattr(message_data, key, self.MapKeypadList(value))
                 continue
+            
+            if key == "KeypadOptionRequired":
+                setattr(message_data, key, value)
+                continue
 
             if hasattr(message_data, key):
                 setattr(message_data, key, value)

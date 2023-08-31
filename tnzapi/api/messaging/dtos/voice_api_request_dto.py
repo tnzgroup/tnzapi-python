@@ -20,6 +20,7 @@ class VoiceApiRequestDTO(CommonApiRequestDTO):
     Voice: str = "English-NewZealand@Female1"
     Options: str = None
     Keypads: list[Keypad] = field(default_factory=list)
+    KeypadOptionRequired: bool = False
 
     def __repr__(self):
         return Functions.__pretty_class__(self, self)

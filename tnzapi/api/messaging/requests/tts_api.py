@@ -44,6 +44,10 @@ class TTSApi(Common):
                 setattr(message_data, key, self.MapKeypadList(value))
                 continue
             
+            if key == "KeypadOptionRequired":
+                setattr(message_data, key, value)
+                continue
+            
             if key == "TTSVoiceType":
                 setattr(message_data, "Voice", value)
                 continue

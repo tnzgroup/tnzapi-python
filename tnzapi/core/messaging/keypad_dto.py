@@ -12,13 +12,15 @@ class KeypadDTO:
     Play: str = None
     PlayFile: str = None
     RouteNumber: str = None
+    PlaySection: str = None
 
     def __iter__(self):
         yield from {
             "Tone": self.Tone,
             "Play": self.Play,
             "PlayFile": self.PlayFile,
-            "RouteNumber": self.RouteNumber
+            "RouteNumber": self.RouteNumber,
+            "PlaySection": self.PlaySection,
         }.items()
 
     def __repr__(self):
