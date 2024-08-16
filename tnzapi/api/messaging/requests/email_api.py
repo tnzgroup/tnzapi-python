@@ -145,12 +145,12 @@ class EmailApi(Common):
                 return MessageApiResult(error="Missing AuthToken")
         
         # Backward compatibility
-        if not self.Recipients:
+        if self.Recipients:
             for recipient in self.Recipients:
                 self.APIMessageData.Destinations.append(recipient)
 
         # Backward compatibility
-        if not self.Attachments:
+        if self.Attachments:
             for attachment in self.Attachments:
                 self.APIMessageData.Files.append(attachment)
 
@@ -162,7 +162,7 @@ class EmailApi(Common):
 
         if not self.APIMessageData.MessagePlain and not self.APIMessageData.MessageHTML:
             return MessageApiResult(error="Missing MessagePlain and MessageHTML")
-
+        
         if not self.APIMessageData.Destinations:
             return MessageApiResult(error="Missing Destinations(s)")
 

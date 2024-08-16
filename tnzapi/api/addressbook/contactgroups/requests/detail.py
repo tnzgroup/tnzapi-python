@@ -23,9 +23,9 @@ class ContactGroupDetail(Common):
                 
                 self.ContactID = value
 
-            if key == "GroupCode":
+            if key == "GroupID":
                 
-                self.GroupCode = value
+                self.GroupID = value
 
     #
     # Functions
@@ -33,7 +33,7 @@ class ContactGroupDetail(Common):
 
     def __PostMessage(self):
         try:
-            r = requests.get(f"{self.APIURL}/addressbook/contact/{self.ContactID}/group/{self.GroupCode}", headers=self.APIHeaders)
+            r = requests.get(f"{self.APIURL}/addressbook/contact/{self.ContactID}/group/{self.GroupID}", headers=self.APIHeaders)
             r.raise_for_status()
         except requests.exceptions.HTTPError as e:
             return ContactGroupApiResult(response=r)
@@ -56,8 +56,8 @@ class ContactGroupDetail(Common):
         if not self.ContactID:
             return ContactGroupApiResult(error="Missing ContactID")
         
-        if not self.GroupCode:
-            return ContactGroupApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return ContactGroupApiResult(error="Missing GroupID")
         
         return self.__PostMessage()
     
@@ -72,8 +72,8 @@ class ContactGroupDetail(Common):
         if not self.ContactID:
             return ContactGroupApiResult(error="Missing ContactID")
         
-        if not self.GroupCode:
-            return ContactGroupApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return ContactGroupApiResult(error="Missing GroupID")
         
         return await asyncio.create_task(self.__PostMessageAsync())
 

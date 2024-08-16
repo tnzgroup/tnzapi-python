@@ -7,7 +7,7 @@ def readme():
 
 setup(
     name='tnzapi',
-    version='2.3.0.2',
+    version='2.4.0.0',
     description='TNZ REST API Helper Library for Python',
     long_description=readme(),
     long_description_content_type='text/markdown',
@@ -19,6 +19,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Communications :: Telephony",
         'Operating System :: OS Independent'

@@ -7,6 +7,7 @@ from tnzapi.helpers.functions import Functions
 @dataclass
 class GroupModel:
     
+    GroupID: str = None
     GroupCode: str = None
     GroupName: str = None
     SubAccount: str = None

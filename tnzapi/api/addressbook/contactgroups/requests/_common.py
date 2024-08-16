@@ -11,7 +11,7 @@ class Common:
     APIHeaders      = _config.__APIHeaders__
 
     ContactID       = ""
-    GroupCode       = ""
+    GroupID         = ""
 
     """ Constructor """
     def __init__(self,kwargs):
@@ -24,7 +24,7 @@ class Common:
         self.APIHeaders     = _config.__APIHeaders__
 
         self.ContactID      = ""
-        self.GroupCode      = ""
+        self.GroupID        = ""
         
         self.SetArgsCommon(kwargs)
 
@@ -38,7 +38,7 @@ class Common:
         self.APIHeaders     = ""
 
         self.ContactID      = ""
-        self.GroupCode      = ""
+        self.GroupID        = ""
 
     """ Set Args """
     def SetArgsCommon(self, kwargs):
@@ -61,8 +61,8 @@ class Common:
         if "ContactID" in kwargs:
             self.ContactID = kwargs.pop("ContactID")
 
-        if "GroupCode" in kwargs:
-            self.GroupCode = kwargs.pop("GroupCode")
+        if "GroupID" in kwargs:
+            self.GroupID = kwargs.pop("GroupID")
     
     def __pretty__(self,obj):
 

@@ -7,7 +7,7 @@ from tnzapi.helpers.functions import Functions
 @dataclass
 class ContactModel:
     
-    ID: str = None
+    ContactID: str = None
     Owner: str = None
     Created: datetime = None
     CreatedUTC: datetime = None

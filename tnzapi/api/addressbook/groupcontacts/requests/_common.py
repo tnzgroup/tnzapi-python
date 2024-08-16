@@ -10,7 +10,7 @@ class Common:
     APIURL          = _config.__APIURL__
     APIHeaders      = _config.__APIHeaders__
 
-    GroupCode       = ""
+    GroupID         = ""
     ContactID       = ""
 
     """ Constructor """
@@ -23,7 +23,7 @@ class Common:
         self.APIURL         = _config.__APIURL__
         self.APIHeaders     = _config.__APIHeaders__
 
-        self.GroupCode      = ""
+        self.GroupID        = ""
         self.ContactID      = ""
         
         self.SetArgsCommon(kwargs)
@@ -37,7 +37,7 @@ class Common:
         self.APIURL         = ""
         self.APIHeaders     = ""
 
-        self.GroupCode      = ""
+        self.GroupID        = ""
         self.ContactID      = ""
 
     """ Set Args """
@@ -58,8 +58,8 @@ class Common:
         if "APIKey" in kwargs:
             self.APIKey = _config.__APIKey__ = kwargs.pop("APIKey")
         
-        if "GroupCode" in kwargs:
-            self.GroupCode = kwargs.pop("GroupCode")
+        if "GroupID" in kwargs:
+            self.GroupID = kwargs.pop("GroupID")
 
         if "ContactID" in kwargs:
             self.ContactID = kwargs.pop("ContactID")

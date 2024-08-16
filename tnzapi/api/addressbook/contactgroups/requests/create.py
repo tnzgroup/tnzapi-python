@@ -20,7 +20,7 @@ class ContactGroupCreate(Common):
     @property
     def Data(self):
         return ContactGroupApiCreateRequestDTO(
-            GroupCode=self.GroupCode
+            GroupID=self.GroupID
         )
     
     #
@@ -53,8 +53,8 @@ class ContactGroupCreate(Common):
         if not self.ContactID:
             return ContactGroupApiResult(error="Missing ContactID")
         
-        if not self.GroupCode:
-            return ContactGroupApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return ContactGroupApiResult(error="Missing GroupID")
           
         return self.__PostMessage()
     
@@ -69,8 +69,8 @@ class ContactGroupCreate(Common):
         if not self.ContactID:
             return ContactGroupApiResult(error="Missing ContactID")
         
-        if not self.GroupCode:
-            return ContactGroupApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return ContactGroupApiResult(error="Missing GroupID")
         
         return await asyncio.create_task(self.__PostMessageAsync())
 

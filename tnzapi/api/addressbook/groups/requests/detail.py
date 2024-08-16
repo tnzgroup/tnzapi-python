@@ -18,9 +18,9 @@ class GroupDetail(Common):
                
         for key, value in kwargs.items():
           
-            if key == "GroupCode":
+            if key == "GroupID":
                 
-                self.GroupCode = value
+                self.GroupID = value
 
     #
     # Functions
@@ -28,7 +28,7 @@ class GroupDetail(Common):
 
     def __PostMessage(self):
         try:
-            r = requests.get(f"{self.APIURL}/addressbook/group/{self.GroupCode}", headers=self.APIHeaders)
+            r = requests.get(f"{self.APIURL}/addressbook/group/{self.GroupID}", headers=self.APIHeaders)
             r.raise_for_status()
         except requests.exceptions.HTTPError as e:
             return GroupApiResult(response=r)
@@ -48,8 +48,8 @@ class GroupDetail(Common):
         if not self.AuthToken:
             return GroupApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupApiResult(error="Missing GroupCode - Please specify ConactID")
+        if not self.GroupID:
+            return GroupApiResult(error="Missing GroupID - Please specify ConactID")
         
         return self.__PostMessage()
     
@@ -61,8 +61,8 @@ class GroupDetail(Common):
         if not self.AuthToken:
             return GroupApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupApiResult(error="Missing GroupCode - Please specify ConactID")
+        if not self.GroupID:
+            return GroupApiResult(error="Missing GroupID - Please specify ConactID")
         
         return await asyncio.create_task(self.__PostMessageAsync())
 

@@ -12,8 +12,9 @@ class RecipientDTO:
     Destination: str = None
     Status: str = None
     Result: str = None
-    SentDate: datetime.datetime = None
-    SentDateUTC: datetime.datetime = None
+    SentTimeLocal: datetime.datetime = None
+    SentTimeUTC: datetime.datetime = None
+    SentTimeUTC_RFC3339: datetime.datetime = None
     Attention: str = None
     Company: str = None
     Custom1: str = None

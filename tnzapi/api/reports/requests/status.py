@@ -47,7 +47,7 @@ class Status(Common):
             return StatusRequestResult(response=r)
         except requests.exceptions.RequestException as e:  # This is the correct syntax
             return StatusRequestResult(error=str(e))
-
+        
         return StatusRequestResult(response=r)
 
     """ Private async function to POST message to TNZ REST API """

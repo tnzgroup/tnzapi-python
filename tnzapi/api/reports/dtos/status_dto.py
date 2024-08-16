@@ -1,3 +1,4 @@
+import datetime
 import json
 from dataclasses import dataclass, field
 
@@ -14,10 +15,12 @@ class StatusDTO:
     SubAccount: str = None
     Department: str = None
     Reference: str = None
-    Created: str = None
-    CreatedUTC: str = None
-    Delayed: str = None
-    DelayedUTC: str = None
+    CreatedTimeLocal: datetime.datetime = None
+    CreatedTimeUTC: datetime.datetime = None
+    CreatedTimeUTC_RFC3339: datetime.datetime = None
+    DelayedTimeLocal: datetime.datetime = None
+    DelayedTimeUTC: datetime.datetime = None
+    DelayedTimeUTC_RFC3339: datetime.datetime = None
     Timezone: str = None
     Count: int = 0
     Complete: int = 0

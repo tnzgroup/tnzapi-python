@@ -29,7 +29,7 @@ class GroupContactCreate(Common):
 
     def __PostMessage(self):
         try:
-            r = requests.post(f"{self.APIURL}/addressbook/group/{self.GroupCode}/contact", Functions.__json_dump_dto__(self, self.Data), headers=self.APIHeaders)
+            r = requests.post(f"{self.APIURL}/addressbook/group/{self.GroupID}/contact", Functions.__json_dump_dto__(self, self.Data), headers=self.APIHeaders)
             r.raise_for_status()
         except requests.exceptions.HTTPError as e:
             return GroupContactApiResult(response=r)
@@ -50,8 +50,8 @@ class GroupContactCreate(Common):
         if not self.AuthToken:
             return GroupContactApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupContactApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupContactApiResult(error="Missing GroupID")
         
         if not self.ContactID:
             return GroupContactApiResult(error="Missing ContactID")
@@ -66,8 +66,8 @@ class GroupContactCreate(Common):
         if not self.AuthToken:
             return GroupContactApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupContactApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupContactApiResult(error="Missing GroupID")
         
         if not self.ContactID:
             return GroupContactApiResult(error="Missing ContactID")

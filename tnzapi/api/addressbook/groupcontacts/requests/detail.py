@@ -23,9 +23,9 @@ class GroupContactDetail(Common):
                 
                 self.ContactID = value
 
-            if key == "GroupCode":
+            if key == "GroupID":
                 
-                self.GroupCode = value
+                self.GroupID = value
 
     #
     # Functions
@@ -33,7 +33,7 @@ class GroupContactDetail(Common):
 
     def __PostMessage(self):
         try:
-            r = requests.get(f"{self.APIURL}/addressbook/group/{self.GroupCode}/contact/{self.ContactID}", headers=self.APIHeaders)
+            r = requests.get(f"{self.APIURL}/addressbook/group/{self.GroupID}/contact/{self.ContactID}", headers=self.APIHeaders)
             r.raise_for_status()
         except requests.exceptions.HTTPError as e:
             return GroupContactApiResult(response=r)
@@ -53,8 +53,8 @@ class GroupContactDetail(Common):
         if not self.AuthToken:
             return GroupContactApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupContactApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupContactApiResult(error="Missing GroupID")
         
         if not self.ContactID:
             return GroupContactApiResult(error="Missing ContactID")
@@ -69,8 +69,8 @@ class GroupContactDetail(Common):
         if not self.AuthToken:
             return GroupContactApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupContactApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupContactApiResult(error="Missing GroupID")
         
         if not self.ContactID:
             return GroupContactApiResult(error="Missing ContactID")

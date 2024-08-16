@@ -1,6 +1,9 @@
 #from tnzapi import __Sender__, __APIKey__, __APIVersion__, __APIURL__
 
 from tnzapi import _config
+from tnzapi.api.addressbook.contacts.dtos.contact_model import ContactModel
+from tnzapi.api.addressbook.groups.dtos.group_model import GroupModel
+from tnzapi.api.messaging.dtos.recipient_model import RecipientModel
 from tnzapi.helpers.functions import Functions
 
 class Common:
@@ -87,7 +90,7 @@ class Common:
 
     """ Add Recipient """
     def AddRecipient(self, recipient):
-
+        
         if recipient:
 
             if isinstance(recipient,str):
@@ -99,7 +102,7 @@ class Common:
                 self.Recipients.append(dest)
             
             elif isinstance(recipient, (list, tuple)):
-
+                
                 for key in recipient:
                     
                     dest = {
@@ -108,9 +111,31 @@ class Common:
 
                     self.Recipients.append(dest)
 
+            elif isinstance(recipient, RecipientModel):
+                
+                self.Recipients.append(recipient)
+
+            elif isinstance(recipient, ContactModel):
+                
+                dest = {
+                    "ContactID": recipient.ContactID
+                }
+
+                self.Recipients.append(dest)
+
+            elif isinstance(recipient, GroupModel):
+                
+                dest = {
+                    "GroupID": recipient.GroupID
+                }
+
+                self.Recipients.append(dest)
+
             elif isinstance(recipient,dict):
                 
                 self.Recipients.append(recipient)
+
+        #print(self.Recipients)
             
 
     """ Add Attachment """

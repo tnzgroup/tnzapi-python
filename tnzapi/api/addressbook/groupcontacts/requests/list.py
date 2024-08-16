@@ -24,9 +24,9 @@ class GroupContactList(Common):
                
         for key, value in kwargs.items():
           
-            if key == "GroupCode":
+            if key == "GroupID":
                 
-                self.GroupCode = value
+                self.GroupID = value
 
             if hasattr(list_request, key):
                 setattr(list_request, key, value)
@@ -53,7 +53,7 @@ class GroupContactList(Common):
     @property
     def BuildAPIURL(self):
         
-        return f"{self.APIURL}/addressbook/group/{self.GroupCode}/contact/list?recordsPerPage={self.Data.RecordsPerPage}&page={self.Data.Page}"
+        return f"{self.APIURL}/addressbook/group/{self.GroupID}/contact/list?recordsPerPage={self.Data.RecordsPerPage}&page={self.Data.Page}"
 
     def __PostMessage(self):
         try:
@@ -78,8 +78,8 @@ class GroupContactList(Common):
         if not self.AuthToken:
             return GroupContactListApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupContactListApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupContactListApiResult(error="Missing GroupID")
         
         return self.__PostMessage()
     
@@ -91,8 +91,8 @@ class GroupContactList(Common):
         if not self.AuthToken:
             return GroupContactListApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupContactListApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupContactListApiResult(error="Missing GroupID")
                 
         return await asyncio.create_task(self.__PostMessageAsync())
 

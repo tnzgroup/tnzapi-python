@@ -17,8 +17,10 @@ class GroupApiResult(object):
                 self.ParseResponse(value)
             
             if key == "error":
-                self.Data.Result = "Error"
-                self.Data.ErrorMessage = value
+                self.Data = GroupApiResultDTO(
+                    Result = "Error",
+                    ErrorMessage = [value]
+                )
 
     def ParseResponse(self, r):
 

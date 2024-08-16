@@ -47,7 +47,7 @@ class GroupUpdate(Common):
 
     def __PostMessage(self):
         try:
-            r = requests.patch(f"{self.APIURL}/addressbook/group/{self.GroupCode}", Functions.__json_dump_dto__(self, self.Data), headers=self.APIHeaders)
+            r = requests.patch(f"{self.APIURL}/addressbook/group/{self.GroupID}", Functions.__json_dump_dto__(self, self.Data), headers=self.APIHeaders)
             r.raise_for_status()
         except requests.exceptions.HTTPError as e:
             return GroupApiResult(response=r)
@@ -68,8 +68,8 @@ class GroupUpdate(Common):
         if not self.AuthToken:
             return GroupApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupApiResult(error="Missing GroupID")
           
         return self.__PostMessage()
     
@@ -81,8 +81,8 @@ class GroupUpdate(Common):
         if not self.AuthToken:
             return GroupApiResult(error="Missing Auth Token")
         
-        if not self.GroupCode:
-            return GroupApiResult(error="Missing GroupCode")
+        if not self.GroupID:
+            return GroupApiResult(error="Missing GroupID")
         
         return await asyncio.create_task(self.__PostMessageAsync())
 
