@@ -18,6 +18,10 @@ class RecipientModel:
     Custom3: str = None
     Custom4: str = None
     Custom5: str = None
+    Custom6: str = None
+    Custom7: str = None
+    Custom8: str = None
+    Custom9: str = None
 
     ContactID: str = None
     GroupID: str = None
