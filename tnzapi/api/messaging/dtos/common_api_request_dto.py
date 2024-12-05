@@ -6,7 +6,18 @@ from tnzapi.helpers.functions import Functions
 
 @dataclass
 class CommonApiRequestDTO:
-    ErrorEmailNotify: str = None
+    
+    # Renaming ErrorEmailNotify -> ReportTo
+    @property
+    def ErrorEmailNotify(self):
+        return self.ReportTo
+
+    # Renaming ErrorEmailNotify -> ReportTo
+    @ErrorEmailNotify.setter
+    def ErrorEmailNotify(self, value):
+        self.ReportTo = value
+
+    ReportTo: str = None
 
     WebhookCallbackURL: str = None
     WebhookCallbackFormat: str = None
