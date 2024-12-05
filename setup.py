@@ -7,7 +7,7 @@ def readme():
 
 setup(
     name='tnzapi',
-    version='2.4.0.1',
+    version='2.4.0.3',
     description='TNZ REST API Helper Library for Python',
     long_description=readme(),
     long_description_content_type='text/markdown',
@@ -29,7 +29,8 @@ setup(
     author_email='support@tnz.co.nz',
     keywords=['tnz', 'api', 'sms', 'fax', 'email', 'voice', 'tts'],
     license='MIT',
-    packages=find_packages(),
+    #packages=find_packages(),
+    packages=find_packages(exclude=['**/__pycache__']),
     install_requires=[
         'requests'
         ],
