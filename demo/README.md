@@ -1,16 +1,9 @@
 # tnzapi-python demo
 
-A small full-stack demo: a FastAPI backend (`demo/api/`) paired with a **shared** React + Vite frontend (`demo/web/`, a git submodule pointing at `github-mirror/tnzapi-demo-web`) — the same frontend `tnzapi-dotnet`'s own demo uses. The frontend's wire format (field names like `SendMode`, `TemplateId`, `ChargeCode`) is fixed and shared; each backend translates it to its own SDK's native field names internally (see `demo/api/app/routers/sms.py` for the pattern).
+A small full-stack demo: a FastAPI backend (`demo/api/`) paired with a **shared** React + Vite frontend (`demo/web/`) — the same frontend `tnzapi-dotnet`'s own demo uses. The frontend's wire format (field names like `SendMode`, `TemplateId`, `ChargeCode`) is fixed and shared; each backend translates it to its own SDK's native field names internally (see `demo/api/app/routers/sms.py` for the pattern).
 
 **Implemented:** Health, Auth (session-based token override), Settings (`api-url` / `allow-insecure-http` fully working; `ssl-verification` returns a documented 501 — `tnzapi-python`'s `HttpClient` has no equivalent knob), every messaging channel (SMS, Email, Fax, TTS, Voice, WhatsApp, RCS, Workflow), Actions (Abort/Reschedule/Resubmit/Pacing, per-channel `PATCH` endpoints), Addressbook (Contact/Group CRUD, ContactGroups/GroupContacts join endpoints), and OptOut (CRUD). Every page the shared frontend renders has a working backend behind it.
 
-## First-time setup
-
-```bash
-git submodule update --init demo/web
-```
-
-(Anyone who clones this repo fresh needs this — submodules aren't checked out automatically by a plain `git clone`.)
 
 > ⚠️ This demo is for local development and evaluation only — see the warning banner on its own Settings page for why it should never be pointed at a production deployment. `demo/api/` also has no request-level authentication of its own and trusts whatever Auth Token it's configured with, so never run it anywhere reachable beyond your own machine.
 
@@ -65,21 +58,6 @@ npm run dev
 ```
 
 Visit `http://localhost:5373` (or pass `-- --port <n>` to run alongside `tnzapi-dotnet`'s own demo web on the same machine).
-
-## Updating the shared frontend
-
-The frontend lives in its own repo (`github-mirror/tnzapi-demo-web`) so both `tnzapi-dotnet` and `tnzapi-python` can use the exact same code. To pull in a change made from either project:
-
-```bash
-cd demo/web
-git checkout main
-git pull
-cd ../..
-git add demo/web
-git commit -m "chore: bump shared demo web submodule"
-```
-
-To make a change to the shared frontend from here, edit inside `demo/web/`, commit and push from *within* that directory (it's its own git repository), then bump the pointer in this repo the same way.
 
 ## Testing
 
