@@ -1,0 +1,44 @@
+name: tnzapi-python-demo
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: demo/api/Dockerfile
+    ports:
+      - "5080:5080"
+    # env_file (not `environment: - TNZ_AUTH_TOKEN=${TNZ_AUTH_TOKEN}`) so a missing/empty .env
+    # leaves TNZ_AUTH_TOKEN completely unset in the container rather than forcing it to an empty
+    # string - tnzapi-python's TNZApiUser reads TNZ_AUTH_TOKEN straight from the OS environment,
+    # so an explicit empty env var would silently blank out a real token. required: false means
+    # "no .env file" is fine.
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      # Mounts the whole repo root (matching the build context) so uvicorn's --reload sees live
+      # edits to both demo/api/ and the sibling tnzapi/ package it imports - without this, the
+      # image's build-time COPY snapshot never changes and every backend edit needs a full
+      # `docker-compose up --build` to take effect.
+      - ..:/src
+    networks:
+      - demo
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "5373:5373"
+    environment:
+      - VITE_API_PROXY_TARGET=http://api:5080
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    networks:
+      - demo
+
+networks:
+  demo:

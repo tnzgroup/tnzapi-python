@@ -9,7 +9,7 @@ class Send(object):
 
     def Email(self,**kwargs):
 
-        from tnzapi.api.messaging.requests.email_api import EmailApi
+        from tnzapi.api.v204.messaging.requests.email_api import EmailApi
 
         if self._email != None:
             del(self._email)
@@ -20,7 +20,7 @@ class Send(object):
     
     def Fax(self,**kwargs):
 
-        from tnzapi.api.messaging.requests.fax_api import FaxApi
+        from tnzapi.api.v204.messaging.requests.fax_api import FaxApi
 
         if self._fax != None:
             del(self._fax)
@@ -31,7 +31,7 @@ class Send(object):
 
     def SMS(self,**kwargs):
 
-        from tnzapi.api.messaging.requests.sms_api import SMSApi
+        from tnzapi.api.v204.messaging.requests.sms_api import SMSApi
 
         if self._sms != None:
             del(self._sms)
@@ -42,7 +42,7 @@ class Send(object):
 
     def TTS(self,**kwargs):
 
-        from tnzapi.api.messaging.requests.tts_api import TTSApi
+        from tnzapi.api.v204.messaging.requests.tts_api import TTSApi
 
         if self._tts != None:
             del(self._tts)
@@ -53,7 +53,7 @@ class Send(object):
     
     def Voice(self,**kwargs):
 
-        from tnzapi.api.messaging.requests.voice_api import VoiceApi
+        from tnzapi.api.v204.messaging.requests.voice_api import VoiceApi
 
         if self._voice != None:
             del(self._voice)

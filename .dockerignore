@@ -1,0 +1,10 @@
+.git
+**/__pycache__
+**/*.pyc
+**/.venv
+**/venv
+**/node_modules
+**/.env
+**/.env.local
+**/.env.test
+demo/web

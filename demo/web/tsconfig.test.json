@@ -1,0 +1,29 @@
+// Deliberately not added to tsconfig.json's "references" — tsc -b treats referenced projects as a
+// composite build graph where each file belongs to exactly one project, and this config's "src"
+// include would collide with tsconfig.app.json's. Kept standalone instead: IDEs discover any
+// tsconfig in the workspace automatically for intellisense/type-checking without needing it wired
+// into the build graph, and `npm run test:types` runs it explicitly as its own tsc invocation.
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["tests", "src"]
+}

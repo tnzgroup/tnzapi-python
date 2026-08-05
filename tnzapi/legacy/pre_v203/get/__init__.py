@@ -8,7 +8,7 @@ class Get(object):
 
     def Status(self,**kwargs):
 
-        from tnzapi.api.reports.requests.status import Status
+        from tnzapi.api.v204.reports.requests.status import Status
 
         if self._status != None:
             del(self._status)
@@ -19,7 +19,7 @@ class Get(object):
     
     def SMSReceived(self,**kwargs):
 
-        from tnzapi.api.reports.requests.sms_received import SMSReceived
+        from tnzapi.api.v204.reports.requests.sms_received import SMSReceived
 
         if self._sms_received != None:
             del(self._sms_received)
@@ -30,7 +30,7 @@ class Get(object):
 
     def SMSReply(self, **kwargs):
 
-        from tnzapi.api.reports.requests.sms_reply import SMSReply
+        from tnzapi.api.v204.reports.requests.sms_reply import SMSReply
 
         if self._sms_reply != None:
             del(self._sms_reply)

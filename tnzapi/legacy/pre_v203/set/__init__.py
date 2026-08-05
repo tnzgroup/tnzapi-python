@@ -8,7 +8,7 @@ class Set(object):
 
     def Abort(self,**kwargs):
 
-        from tnzapi.api.actions.abort import Abort
+        from tnzapi.api.v204.actions.requests.abort import Abort
 
         if self._abort != None:
             del(self._abort)
@@ -19,7 +19,7 @@ class Set(object):
     
     def Pacing(self,**kwargs):
 
-        from tnzapi.api.actions.pacing import Pacing
+        from tnzapi.api.v204.actions.requests.pacing import Pacing
 
         if self._pacing != None:
             del(self._pacing)
@@ -30,7 +30,7 @@ class Set(object):
 
     def Reschedule(self,**kwargs):
 
-        from tnzapi.api.actions.reschedule import Reschedule
+        from tnzapi.api.v204.actions.requests.reschedule import Reschedule
 
         if self._reschedule != None:
             del(self._reschedule)
@@ -41,7 +41,7 @@ class Set(object):
 
     def Resubmit(self,**kwargs):
 
-        from tnzapi.api.actions.resubmit import Resubmit
+        from tnzapi.api.v204.actions.requests.resubmit import Resubmit
 
         if self._resubmit != None:
             del(self._resubmit)

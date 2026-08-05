@@ -1,0 +1,73 @@
+﻿MANIFEST
+setup.cfg
+
+*.zip
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Editors
+.vs/*
+
+# dependencies
+**/node_modules
+
+# production
+**/dist
+*.tsbuildinfo
+
+# config
+.env
+.env.local
+.env.test
+
+# Temporary
+.superpowers/sdd/*
+
+# Sphinx documentation
+docs/_build/
